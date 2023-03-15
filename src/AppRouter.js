@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "../pages/Home";
-import Root from "../pages/Root";
-import VideoDetail from "../pages/VideoDetail";
-import Videos from "../pages/Videos";
-import NotFound from "./../pages/NotFound";
+import Home from "./pages/Home";
+import VideoDetail from "./pages/VideoDetail";
+import Videos from "./pages/Videos";
+import NotFound from "./pages/NotFound";
+import Root from "./pages/Root";
 
 const router = createBrowserRouter([
     {
