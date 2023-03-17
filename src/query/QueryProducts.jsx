@@ -9,12 +9,16 @@ export default function QueryProducts() {
         isLoading,
         error,
         data: products,
-    } = useQuery(["products"], async () => {
-        console.log("fetching.....");
-        const res = await fetch(`data/products.json`);
-        return await res.json();
-    });
-    //const [loading, error, products] = useProducts({ salesOnly: checked });
+    } = useQuery(
+        ["products", checked],
+        async () => {
+            console.log("fetching.....");
+            return fetch(`data/${checked ? "sale_" : ""}products.json`).then(
+                (res) => res.json()
+            );
+        },
+        { staleTime: 1000 * 60 * 5 }
+    );
     const handleChange = () => setChecked((prev) => !prev);
 
     if (isLoading) return <p>Loading...</p>;
